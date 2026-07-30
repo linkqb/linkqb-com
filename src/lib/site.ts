@@ -1,10 +1,10 @@
 export const SITE = {
   name: "AI Mr Ferdy",
 
-  title: "AI Mr Ferdy | Website Resmi Platform AI Indonesia",
+  title: "AI Mr Ferdy - Pusat Informasi Game Online, Teknologi, Aplikasi & Hiburan Digital",
 
   description:
-    "Website resmi AI Mr Ferdy. Akses platform AI Indonesia untuk produktivitas digital, pembuatan konten, dan solusi otomatisasi modern.",
+    "AI Mr Ferdy merupakan portal informasi yang menyajikan artikel berkualitas tentang game online, teknologi terbaru, aplikasi, keamanan siber, tutorial, tips digital, serta berbagai informasi menarik yang selalu diperbarui.",
 
   author: "AI Mr Ferdy",
 
