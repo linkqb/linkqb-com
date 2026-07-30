@@ -1,29 +1,36 @@
 // src/lib/home-schema.ts
 
+import { SITE } from "./site";
+
+const URL = SITE.url();
+
 export const homeSchema = {
   "@context": "https://schema.org",
   "@graph": [
     // Organization
     {
       "@type": "Organization",
-      "@id": "${SITE.url}/#organization",
-      "name": "AI Mr Ferdy",
-	  "description": "Platform AI Indonesia yang menyediakan AI Tools, SEO, automation, dan solusi digital modern.",
-      "url": "${SITE.url}/",
+      "@id": `${URL}/#organization`,
+      "name": SITE.name,
+      "description": SITE.description,
+      "url": SITE.url(),
       "logo": {
-        "@id": "${SITE.url}/images/og-cover.jpg"
+        "@id": `${URL}${SITE.image}`
       },
       "image": {
-        "@id": "${SITE.url}/images/og-cover.jpg"
+        "@id": `${URL}${SITE.image}`
       },
-	  "knowsAbout": [
-  "Artificial Intelligence",
-  "SEO",
-  "Automation",
-  "Cloudflare Workers",
-  "Astro",
-  "Web Development"
-],
+      "knowsAbout": [
+        "Artificial Intelligence",
+        "SEO",
+        "Automation",
+        "Cloudflare Workers",
+        "Astro",
+        "Web Development"
+      ],
+    }
+  ]
+};
       "sameAs": [
     "https://www.youtube.com/@ai-mr-ferdy",
     "https://www.instagram.com/aimrferdyofficial",
@@ -34,140 +41,139 @@ export const homeSchema = {
       ]
     },
 
-    // Person
-    {
-      "@type": "Person",
-      "@id": "${SITE.url}/about#person",
-      "name": "AI Mr Ferdy",
-	  "description": "Founder dan pengembang AI Mr Ferdy.",
-      "url": "${SITE.url}/",
-      "image": {
-        "@id": "${SITE.url}/images/og-cover.jpg"
-      },
-      "worksFor": {
-        "@id": "${SITE.url}/#organization"
-      },
-	  "mainEntityOfPage": {
-  "@id": "${SITE.url}/#webpage"
-}
-    },
+   // Person
+{
+  "@type": "Person",
+  "@id": `${URL}/about#person`,
+  "name": SITE.name,
+  "description": "Founder dan pengembang AI Mr Ferdy.",
+  "url": SITE.url(),
+  "image": {
+    "@id": `${URL}${SITE.image}`
+  },
+  "worksFor": {
+    "@id": `${URL}/#organization`
+  },
+  "mainEntityOfPage": {
+    "@id": `${URL}/#webpage`
+  }
+},
+// Website
+{
+  "@type": "WebSite",
+  "@id": `${URL}/#website`,
+  "url": SITE.url(),
+  "name": SITE.title,
+  "alternateName": SITE.name,
+  "publisher": {
+    "@id": `${URL}/#organization`
+  },
+  "inLanguage": SITE.locale,
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": `${URL}/searchresult/?q={search_term_string}`,
+    "query-input": "required name=search_term_string"
+  }
+},
 
-    // Website
-    {
-      "@type": "WebSite",
-      "@id": "${SITE.url}/#website",
-      "url": "${SITE.url}/",
-      "name": "AI Mr Ferdy | Website Resmi Platform AI Indonesia",
-	  "alternateName": "AI Mr Ferdy",
-      "publisher": {
-        "@id": "${SITE.url}/#organization"
-      },
-      "inLanguage": "id-ID",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "${SITE.url}/searchresult/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    },
+// Image
+{
+  "@type": "ImageObject",
+  "@id": `${URL}${SITE.image}`,
+  "url": `${URL}${SITE.image}`,
+  "contentUrl": `${URL}${SITE.image}`,
+  "caption": SITE.name,
+  "width": 1200,
+  "height": 630
+},
 
-    // Image
+ // Breadcrumb
+{
+  "@type": "BreadcrumbList",
+  "@id": `${URL}/#breadcrumb`,
+  "itemListElement": [
     {
-      "@type": "ImageObject",
-      "@id": "${SITE.url}/images/og-cover.jpg",
-      "url": "${SITE.url}/images/og-cover.jpg",
-      "contentUrl": "${SITE.url}/images/og-cover.jpg",
-      "caption": "AI Mr Ferdy",
-	  "width": 1200,
-      "height": 630
-    },
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": SITE.url()
+    }
+  ]
+},
 
-    // Breadcrumb
-    {
-      "@type": "BreadcrumbList",
-      "@id": "${SITE.url}/#breadcrumb",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "${SITE.url}/"
-        }
-      ]
-    },
-
-    // WebPage
-    {
-      "@type": "WebPage",
-      "@id": "${SITE.url}/#webpage",
-      "url": "${SITE.url}/",
-      "name": "AI Mr Ferdy | Website Resmi Platform AI Indonesia",
-      "description": "Website resmi AI Mr Ferdy yang menyediakan AI Tools, SEO, automation, dan solusi digital modern.",
-      "isPartOf": {
-        "@id": "${SITE.url}/#website"
-      },
-      "publisher": {
-        "@id": "${SITE.url}/#organization"
-      },
-      "about": {
-        "@id": "${SITE.url}/#person"
-      },
-      "breadcrumb": {
-        "@id": "${SITE.url}/#breadcrumb"
-      },
-      "primaryImageOfPage": {
-        "@id": "${SITE.url}/images/og-cover.jpg"
-      },
-	  "mainEntity": {
-     "@id": "${SITE.url}/#organization"
-     },
-      "inLanguage": "id-ID"
-    },
-
-    // Navigation
-    {
+// WebPage
+{
+  "@type": "WebPage",
+  "@id": `${URL}/#webpage`,
+  "url": SITE.url(),
+  "name": SITE.title,
+  "description": SITE.description,
+  "isPartOf": {
+    "@id": `${URL}/#website`
+  },
+  "publisher": {
+    "@id": `${URL}/#organization`
+  },
+  "about": {
+    "@id": `${URL}/#person`
+  },
+  "breadcrumb": {
+    "@id": `${URL}/#breadcrumb`
+  },
+  "primaryImageOfPage": {
+    "@id": `${URL}${SITE.image}`
+  },
+  "mainEntity": {
+    "@id": `${URL}/#organization`
+  },
+  "inLanguage": SITE.locale
+},
+// Navigation
+{
   "@type": "SiteNavigationElement",
-  "@id": "${SITE.url}/#navigation",
+  "@id": `${URL}/#navigation`,
   "name": "Main Navigation",
   "hasPart": [
     {
       "@type": "WebPage",
       "name": "Home",
-      "url": "${SITE.url}/"
+      "url": SITE.url()
     },
     {
       "@type": "WebPage",
       "name": "Blog",
-      "url": "${SITE.url}/blog"
+      "url": SITE.url("blog")
     },
     {
       "@type": "WebPage",
       "name": "Tools",
-      "url": "${SITE.url}/tools"
+      "url": SITE.url("tools")
     },
     {
       "@type": "WebPage",
       "name": "Product",
-      "url": "${SITE.url}/product"
+      "url": SITE.url("product")
     },
     {
       "@type": "WebPage",
       "name": "About",
-      "url": "${SITE.url}/about"
+      "url": SITE.url("about")
     },
     {
       "@type": "WebPage",
       "name": "Contact",
-      "url": "${SITE.url}/contact"
+      "url": SITE.url("contact")
     }
   ]
 },
-	// Service
-	{
+
+// Service
+{
   "@type": "Service",
-  "@id": "${SITE.url}/#service",
+  "@id": `${URL}/#service`,
   "name": "AI Tools & Digital Solutions",
   "provider": {
-    "@id": "${SITE.url}/#organization"
+    "@id": `${URL}/#organization`
   },
   "serviceType": [
     "AI Tools",
@@ -182,10 +188,11 @@ export const homeSchema = {
     "name": "Indonesia"
   }
 },
+
 // WebApplication
 {
   "@type": "WebApplication",
-  "@id": "${SITE.url}/#app",
+  "@id": `${URL}/#app`,
   "name": "AI Mr Ferdy App",
   "url": "https://app.aimrferdy.workers.dev/",
   "applicationCategory": "BusinessApplication",
