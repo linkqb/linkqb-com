@@ -7,7 +7,7 @@ export default defineConfig({
 
   site:
     process.env.SITE_URL ||
-    'https://Ferdy.rutesokin.monster',
+    'https://linkqb.com',
 
   integrations: [
     sitemap()
