@@ -4,8 +4,10 @@ description: "Ai Mr Ferdy adalah game sepak bola yang menawarkan pengalaman berm
 pubDate: 2026-07-28
 updatedDate: 2026-07-28
 
-image: "/apk/ai-mr-Ferdy.webp"
-banner: "/apk/ai-mr-Ferdy-1.webp"
+hero: https://linkqb.com/img/default.png
+icon: https://linkqb.com/img/icon.png
+
+download: /go
 
 category: "Football"
 version: "v5.4.2"
@@ -14,7 +16,6 @@ rating: 4.3
 downloads: "26K+"
 android: "6.0+"
 
-download: "/odbmndfk.html"
 popular: true
 ---
 
