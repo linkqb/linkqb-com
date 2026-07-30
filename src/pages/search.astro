@@ -1,0 +1,309 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+const tools = await getCollection("tools");
+const products = await getCollection("product");
+---
+
+<MainLayout title="Search - Ai Mr Ferdy">
+ <Fragment slot="head">
+    <meta
+      name="robots"
+      content="noindex,follow"
+    />
+  </Fragment>
+
+
+  <div class="search-page">
+
+    <h1>Search Ai Mr Ferdy</h1>
+
+    <input
+      id="searchInput"
+      placeholder="Cari artikel, tools, atau produk..."
+    />
+
+    <select id="typeFilter">
+
+      <option value="all">
+        Semua
+      </option>
+
+      <option value="blog">
+        Blog
+      </option>
+
+      <option value="tool">
+        Tools
+      </option>
+
+      <option value="product">
+        Product
+      </option>
+
+    </select>
+
+    <p id="emptyState">
+      Ketik untuk mencari...
+    </p>
+
+    <div id="results">
+
+      {posts.map((post) => (
+
+        <a
+          class="item"
+          data-type="blog"
+          href={`/blog/${post.slug}/`}
+        >
+
+          <span class="badge">
+            Blog
+          </span>
+
+          <h3>
+            {post.data.title}
+          </h3>
+
+          <p>
+            {post.data.description}
+          </p>
+
+        </a>
+
+      ))}
+
+      {tools.map((tool) => (
+
+        <a
+          class="item"
+          data-type="tool"
+          href={`/tools/${tool.slug}/`}
+        >
+
+          <span class="badge">
+            Tool
+          </span>
+
+          <h3>
+            {tool.data.title}
+          </h3>
+
+          <p>
+            {tool.data.description}
+          </p>
+
+        </a>
+
+      ))}
+
+      {products.map((product) => (
+
+        <a
+          class="item"
+          data-type="product"
+          href={`/product/${product.slug}/`}
+        >
+
+          <span class="badge">
+            Product
+          </span>
+
+          <h3>
+            {product.data.title}
+          </h3>
+
+          <p>
+            {product.data.description}
+          </p>
+
+        </a>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</MainLayout>
+
+<script is:inline>
+
+const input =
+  document.getElementById("searchInput");
+
+const filter =
+  document.getElementById("typeFilter");
+
+const items =
+  document.querySelectorAll(".item");
+
+const emptyState =
+  document.getElementById("emptyState");
+
+/* hide all initially */
+
+items.forEach(item => {
+  item.style.display = "none";
+});
+
+function runSearch() {
+
+  const keyword =
+    input.value.trim().toLowerCase();
+
+  const selectedType =
+    filter.value;
+
+  let found = false;
+
+  items.forEach(item => {
+
+    const text =
+      item.innerText.toLowerCase();
+
+    const itemType =
+      item.dataset.type;
+
+    const matchKeyword =
+      keyword !== "" &&
+      text.includes(keyword);
+
+    const matchType =
+      selectedType === "all" ||
+      itemType === selectedType;
+
+    const show =
+      matchKeyword &&
+      matchType;
+
+    item.style.display =
+      show ? "block" : "none";
+
+    if (show) {
+      found = true;
+    }
+
+  });
+
+  if (keyword === "") {
+
+    emptyState.textContent =
+      "Ketik untuk mencari...";
+
+    emptyState.style.display =
+      "block";
+
+    items.forEach(item => {
+      item.style.display = "none";
+    });
+
+    return;
+
+  }
+
+  emptyState.style.display =
+    found ? "none" : "block";
+
+  if (!found) {
+
+    emptyState.textContent =
+      "Tidak ada hasil ditemukan.";
+
+  }
+
+}
+
+input.addEventListener(
+  "input",
+  runSearch
+);
+
+filter.addEventListener(
+  "change",
+  runSearch
+);
+
+</script>
+
+<style>
+
+.search-page{
+  max-width:800px;
+  margin:80px auto;
+  padding:0 20px;
+}
+
+.search-page h1{
+  font-size:36px;
+  margin-bottom:20px;
+}
+
+#searchInput{
+  width:100%;
+  padding:14px;
+  border:1px solid var(--border,#ddd);
+  border-radius:12px;
+  font-size:16px;
+  margin-bottom:16px;
+  outline:none;
+}
+
+#typeFilter{
+  width:100%;
+  padding:14px;
+  border:1px solid var(--border,#ddd);
+  border-radius:12px;
+  margin-bottom:20px;
+  font-size:16px;
+}
+
+#emptyState{
+  opacity:.6;
+  margin-bottom:20px;
+}
+
+#results{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.item{
+  display:block;
+  padding:16px;
+  border:1px solid var(--border,#eee);
+  border-radius:14px;
+  text-decoration:none;
+  color:inherit;
+  transition:.2s;
+}
+
+.item:hover{
+  transform:translateY(-2px);
+}
+
+.item h3{
+  margin:0 0 8px;
+  font-size:18px;
+}
+
+.item p{
+  margin:0;
+  opacity:.7;
+  font-size:14px;
+}
+
+.badge{
+  display:inline-block;
+  margin-bottom:10px;
+  padding:4px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:600;
+  background:#f3f4f6;
+}
+
+</style>

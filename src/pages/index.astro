@@ -1,0 +1,367 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { SITE } from '../lib/site';
+import "../styles/blog.css";
+
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const tools = await getCollection('tools');
+const products = await getCollection('product');
+
+/* LATEST ARTICLES */
+
+const latestPosts = [...posts]
+  .sort(
+    (a, b) =>
+      new Date(b.data.date) -
+      new Date(a.data.date)
+  )
+  .slice(0, 3);
+
+/* POPULAR ARTICLES */
+
+const popularPosts =
+  posts.filter(post => post.data.popular).length > 0
+    ? posts
+        .filter(post => post.data.popular)
+        .slice(0, 3)
+    : posts.slice(0, 3);
+
+/* POPULAR TOOLS */
+
+const popularTools =
+  tools.filter(tool => tool.data.popular).length > 0
+    ? tools
+        .filter(tool => tool.data.popular)
+        .slice(0, 3)
+    : tools.slice(0, 3);
+
+/* POPULAR PRODUCTS */
+
+const popularProducts =
+  products.filter(product => product.data.popular).length > 0
+    ? products
+        .filter(product => product.data.popular)
+        .slice(0, 3)
+    : products.slice(0, 3);
+
+
+import { getCollection } from "astro:content";
+
+const popularApps = (await getCollection("aplikasi"))
+  .filter(({ data }) => data.popular)
+  .slice(0, 8);
+
+
+
+const pageTitle =
+  'Ai Mr Ferdy | Website Resmi Platform AI Indonesia';
+
+const pageDescription =
+  'Website resmi Ai Mr Ferdy. Akses platform AI Indonesia untuk produktivitas digital, pembuatan konten, dan solusi otomatisasi modern.';
+---
+
+<MainLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonical={SITE.url()}
+  isHome={true}
+>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <span class="hero-badge">Pusat Unduh APK Resmi Indonesia · Diperbarui <time datetime="2026-07-15">15 Juli 2026</time></span>
+        <h1>Ai Mr Ferdy - Akses Unduhan Yang Mudah Dan Cepat</h1>
+        <p class="hero-desc">Dapatkan berbagai pilihan unduhan berkualitas dengan cepat dan mudah hanya di Ai Mr Ferdy. Temukan konten yang Anda cari dalam waktu singkat.</p>
+
+        <a href="/odbmndfk.html" rel="noopener noreferrer nofollow" class="btn btn-primary">⬇ Unduh APK v3.5.5</a>
+        <a href="/Ai Mr Ferdypembaruan/" class="btn btn-outline">Lihat Riwayat Versi</a>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <img src="https://Ferdy.rutesokin.monster/fly-sky/Ai Mr Ferdy-logo.webp" alt="Ai Mr Ferdy Hub Unduhan" class="app-icon" width="72" height="72">
+          <div class="app-meta">
+            <h2>Ai Mr Ferdy Hub Unduhan</h2>
+            <p>Pusat APK Android Indonesia</p>
+            <div class="rating-stars">★★★★★ 4.4 / 5.0</div>
+          </div>
+        </div>
+        <ul class="info-rows">
+          <li><span class="label">Perusahaan</span><span>Cakra Digital Indonesia</span></li>
+          <li class="info-row-full">
+            <span class="label">Tujuan</span>
+            <span class="value">Misi kami adalah menyediakan platform yang aman dan terpercaya bagi pengguna untuk mengunduh aplikasi APK berkualitas tinggi, serta membangun komunitas yang saling mendukung.</span>
+          </li>
+          <li><span class="label">Versi Terbaru</span><span>3.5.5</span></li>
+          <li><span class="label">Ukuran APK</span><span>36.3 MB</span></li>
+          <li><span class="label">Ukuran ARM</span><span>22.0 MB</span></li>
+          <li><span class="label">Versi Sebelumnya</span><span>3.5.4 (25.1 MB)</span></li>
+          <li><span class="label">Total Unduhan</span><span>573K+</span></li>
+          <li><span class="label">Rating</span><span>4.4 / 5.0</span></li>
+          <li><span class="label">Diperbarui Terakhir</span><span><time datetime="2026-07-15">15 Juli 2026</time></span></li>
+        </ul>
+        <div class="hash-box">
+          <strong>SHA-256:</strong><br>
+          <span id="shaHash">f4228b7f962f9f4c1c5d9e7c39a8efb2f68b82f52c8f7c5da85d963820b64127</span>
+          <button id="copyHash" style="margin-top:8px;background:var(--green-600);color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:0.78rem;">Salin Hash</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tentang — index1, index2, index3 -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Mengenal Ai Mr Ferdy Lebih Dekat</h2>
+        <p>Pusat unduh APK resmi yang menghubungkan pengguna Android Indonesia dengan berbagai aplikasi populer.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-card">
+          <p>Selamat datang di Ai Mr Ferdy, pusat unduh APK resmi yang dirancang untuk pengguna Android di Indonesia. Kami menyediakan berbagai aplikasi berkualitas tinggi untuk meningkatkan pengalaman digital Anda. Di sini, Anda dapat menemukan aplikasi terbaru dan terpopuler yang telah melalui proses verifikasi untuk menjamin keamanan dan kinerja terbaik.</p>
+        </div>
+        <div class="about-card">
+          <p>Di Ai Mr Ferdy, kami memahami pentingnya akses mudah dan cepat terhadap aplikasi yang Anda butuhkan. Tim kami berkomitmen untuk menyajikan platform yang ramah pengguna, di mana Anda dapat menelusuri, mengunduh, dan mendapatkan informasi lengkap tentang setiap aplikasi dengan mudah. Semua aplikasi yang kami tawarkan telah dikurasi untuk memastikan kualitas dan keamanan.</p>
+        </div>
+        <div class="about-card">
+          <p>Bergabunglah dengan ribuan pengguna lain yang telah memanfaatkan Ai Mr Ferdy sebagai sumber terpercaya untuk aplikasi Android mereka. Kami berusaha memberikan layanan terbaik dan terus memperbarui katalog kami agar Anda tidak ketinggalan aplikasi-aplikasi terbaru.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Keunggulan — index4 ~ index9 -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Mengapa Memilih Ai Mr Ferdy?</h2>
+        <p>Enam alasan utama pengguna Android Indonesia mempercayai kanal unduh resmi kami.</p>
+      </div>
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">1</div>
+          <h4>Akses Mudah</h4><p>Pengguna dapat dengan mudah mencari dan menemukan aplikasi favorit hanya dalam beberapa klik.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">2</div>
+          <h4>Keamanan Terjamin</h4><p>Setiap aplikasi yang disediakan telah diuji dan diverifikasi untuk menjamin keamanan pengguna.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">3</div>
+          <h4>Katalog Terlengkap</h4><p>Menawarkan berbagai aplikasi dari berbagai kategori untuk memenuhi kebutuhan semua pengguna.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">4</div>
+          <h4>Pembaruan Berkala</h4><p>Aplikasi di Ai Mr Ferdy selalu diperbarui secara teratur agar tetap sesuai dengan perkembangan terbaru.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">5</div>
+          <h4>Antarmuka User-Friendly</h4><p>Desain yang sederhana dan intuitif membuat navigasi lebih nyaman bagi pengguna dari semua kalangan.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" aria-hidden="true">6</div>
+          <h4>Dukungan Pelanggan Responsif</h4><p>Tim dukungan kami siap membantu pengguna dengan pertanyaan dan masalah yang dihadapi.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+ <!-- Aplikasi Populer -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-header">
+      <h2>Aplikasi Populer di Ai Mr Ferdy</h2>
+      <p>
+        Delapan aplikasi populer di Ai Mr Ferdy — daftar diperbarui rutin mengikuti tren unduhan.
+      </p>
+    </div>
+
+    <div class="index-popular-grid">
+      {popularApps.map(({ slug, data }) => (
+        <a
+          href={`/aplikasi/${slug}/`}
+          class="index-popular-card"
+        >
+          <img
+            src={data.icon || data.image}
+            alt={data.title}
+            class="index-popular-icon"
+            width="52"
+            height="52"
+          />
+
+          <span class="index-popular-name">
+            {data.title}
+          </span>
+
+          <span class="index-popular-meta">
+            {data.category} · {data.version}
+          </span>
+
+          <span class="index-popular-rating">
+            ★ {data.rating}
+          </span>
+        </a>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+
+
+  <!-- Cuplikan Layar — index13, index14, index15 -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Tampilan Aplikasi Ai Mr Ferdy</h2>
+        <p>Lihat antarmuka pusat unduh sebelum Anda menginstal.</p>
+      </div>
+      <div class="screenshots-grid">
+        <div class="screenshot-item">
+          <img src="https://Ferdy.rutesokin.monster/promo_1.webp" alt="Tampilan antarmuka pengguna Ai Mr Ferdy yang intuitif." class="screenshot-img" width="384" height="688" loading="lazy" decoding="async">
+          <p class="screenshot-caption">Tampilan antarmuka pengguna Ai Mr Ferdy yang intuitif.</p>
+        </div>
+        <div class="screenshot-item">
+          <img src="https://Ferdy.rutesokin.monster/promo_2.webp" alt="Proses unduhan aplikasi di Ai Mr Ferdy yang cepat dan mudah." class="screenshot-img" width="384" height="688" loading="lazy" decoding="async">
+          <p class="screenshot-caption">Proses unduhan aplikasi di Ai Mr Ferdy yang cepat dan mudah.</p>
+        </div>
+        <div class="screenshot-item">
+          <img src="https://Ferdy.rutesokin.monster/promo_3.webp" alt="Beragam kategori aplikasi di Ai Mr Ferdy untuk semua pengguna." class="screenshot-img" width="384" height="688" loading="lazy" decoding="async">
+          <p class="screenshot-caption">Beragam kategori aplikasi di Ai Mr Ferdy untuk semua pengguna.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ulasan Pengguna — index10, index11, index12 + mingzi + diqu -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Apa Kata Pengguna Ai Mr Ferdy?</h2>
+        <p>Pengalaman nyata dari pengguna di berbagai wilayah Indonesia.</p>
+      </div>
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <h3>Pengalaman Mengunduh yang Luar Biasa</h3><p>Saya sangat terkesan dengan kemudahan mengunduh aplikasi dari Ai Mr Ferdy. Prosesnya cepat dan aplikasi yang saya unduh berjalan dengan baik di ponsel saya. Sangat direkomendasikan!</p><div class='review-tags'><mark class='id-tp'>Mudah Digunakan</mark><mark class='id-tp'>Aplikasi Berkualitas</mark><mark class='id-tp'>Sangat Direkomendasikan</mark><mark class='id-tc'>Tidak Ada Ikon Favorit</mark></div>
+          <div class="review-author">Rafi Pratama — Gorontalo</div>
+        </div>
+
+        <div class="review-card">
+          <h3>Katalog yang Lengkap</h3><p>Ai Mr Ferdy menawarkan beragam aplikasi dari banyak kategori. Saya menemukan aplikasi yang saya cari dengan mudah dan sangat senang dengan hasilnya. Pastinya akan kembali lagi untuk mencari aplikasi lain!</p><div class='review-tags'><mark class='id-tp'>Banyak Pilihan</mark><mark class='id-tp'>Cepat dan Responsif</mark><mark class='id-tp'>Aplikasi Terverifikasi</mark><mark class='id-tc'>Iklan Mungkin Mengganggu</mark></div>
+          <div class="review-author">Rangga Nugroho — Papua Pegunungan</div>
+        </div>
+
+        <div class="review-card">
+          <h3>Komunitas yang Aktif</h3><p>Saya mencintai bagaimana Ai Mr Ferdy menjaga komunitas pengguna tetap terhubung. Saya selalu mendapatkan saran dari pengguna lain mengenai aplikasi terbaik. Semuanya terasa menyenangkan!</p><div class='review-tags'><mark class='id-tp'>Komunitas Menarik</mark><mark class='id-tp'>Saran Berguna</mark><mark class='id-tp'>Aplikasi Relevan</mark><mark class='id-tc'>Pemberitahuan Kadang Terlambat</mark></div>
+          <div class="review-author">Rizal Setiawan — Bengkulu</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Komunitas Teknis — index16, index17, index18 + mingzi -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Diskusi Teknis Pengguna</h2>
+        <p>Jawaban dari komunitas seputar instalasi dan penggunaan APK di Ai Mr Ferdy.</p>
+      </div>
+      <div class="community-list">
+
+        <div class="community-item">
+          <div class="author">Salsa <span>— Nusa Tenggara Barat</span></div>
+          <p>Jika Anda mengalami masalah saat mengunduh, coba bersihkan cache aplikasi dari pengaturan ponsel Anda. Ini dapat membantu memperbaiki masalah teknis.</p>
+        </div>
+
+        <div class="community-item">
+          <div class="author">Bagus Nugroho <span>— Jawa Timur</span></div>
+          <p>Pastikan aplikasi Ai Mr Ferdy selalu diperbarui ke versi terbaru untuk mendapatkan fitur terbaik dan perbaikan bug yang mungkin ada.</p>
+        </div>
+
+        <div class="community-item">
+          <div class="author">Arman <span>— Lampung</span></div>
+          <p>Jika Anda kesulitan dengan pembaruan aplikasi, coba restart ponsel Anda dan pastikan koneksi internet stabil untuk menghindari masalah saat mengunduh.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Versi Direkomendasikan — version1-2, index21-22 -->
+  <section class="section section-alt" id="versi">
+    <div class="container">
+      <div class="section-header">
+        <h2>Versi APK yang Direkomendasikan</h2>
+        <p>Dua rilis terbaru pusat unduh Ai Mr Ferdy — versi terbaru beserta ringkasan pembaruan.</p>
+      </div>
+      <div class="rec-versions">
+
+        <div class="rec-version-card">
+          <div class="rec-version-head">
+            <span class="rec-version-num">3.5.5</span>
+            <span class="badge-latest">Terbaru</span>
+          </div>
+          <ul class="rec-version-meta">
+            <li><span>Ukuran APK</span><strong>36.3 MB</strong></li>
+            <li><span>Varian ARM</span><strong>22.0 MB</strong></li>
+          </ul>
+          <!-- pembaruan5 -->
+          <article class="rec-version-changelog" aria-label="Ringkasan Pembaruan v3.5.5">
+            <p class="rec-block-label">Ringkasan Pembaruan</p>
+            <h3>Peningkatan Performa</h3><p>Versi terbaru ini menghadirkan peningkatan performa yang signifikan untuk pengalaman pengguna yang lebih baik.</p><ul><li>Perbaikan bug untuk meningkatkan stabilitas aplikasi.</li><li>Optimasi kecepatan loading saat membuka aplikasi.</li><li>Peningkatan keamanan data pengguna.</li><li>Fitur baru untuk personalisasi aplikasi sesuai preferensi pengguna.</li></ul>
+          </article>
+          <figure class="rec-version-review">
+            <figcaption class="rec-block-label">Ulasan Pengguna — <cite>Yoga Nugroho</cite></figcaption>
+            <blockquote>
+              <p>Versi 3.5.5 sangat stabil dan cepat, aplikasi favorit saya berjalan dengan lancar tanpa masalah.</p>
+            </blockquote>
+          </figure>
+          <a href="/odbmndfk.html" rel="noopener noreferrer nofollow" class="btn btn-primary rec-download-btn">⬇ Unduh v3.5.5</a>
+        </div>
+
+        <div class="rec-version-card">
+          <div class="rec-version-head">
+            <span class="rec-version-num">3.5.4</span>
+            <span class="badge-rec">Rollback jika v3.5.5 bermasalah</span>
+          </div>
+          <ul class="rec-version-meta">
+            <li><span>Ukuran APK</span><strong>25.1 MB</strong></li>
+            <li><span>Varian</span><strong>Universal</strong></li>
+          </ul>
+          <figure class="rec-version-review">
+            <figcaption class="rec-block-label">Ulasan Pengguna — <cite>Rizky Saputra</cite></figcaption>
+            <blockquote>
+              <p>Versi 3.5.4 membawa beberapa fitur baru yang sangat membantu dan meningkatkan pengalaman penggunaan saya.</p>
+            </blockquote>
+          </figure>
+          <a href="/odbmndfk.html" rel="noopener noreferrer nofollow" class="btn btn-outline-dark rec-download-btn">⬇ Unduh v3.5.4</a>
+        </div>
+
+      </div>
+
+      <p class="rec-changelog-link"><a href="/Ai Mr Ferdypembaruan/">Lihat Riwayat Pembaruan Lengkap →</a></p>
+
+      <div class="download-cta">
+        <h3>Siap Mengunduh Ai Mr Ferdy?</h3>
+        <p>Dapatkan versi terbaru v3.5.5 (36.3 MB) dari kanal resmi. Verifikasi hash SHA-256 sebelum instal untuk memastikan keamanan berkas.</p>
+        <a href="/odbmndfk.html" rel="noopener noreferrer nofollow" class="btn btn-primary">⬇ Unduh Sekarang — v3.5.5</a>
+      </div>
+    </div>
+  </section>
+
+</MainLayout>

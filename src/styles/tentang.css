@@ -1,0 +1,249 @@
+/* tentang-kami.html — Tentang Kami */
+
+.page-hero {
+  background: linear-gradient(160deg, var(--green-900) 0%, var(--green-700) 100%);
+  color: var(--white);
+  padding: 48px 0 56px;
+}
+
+.breadcrumb {
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.breadcrumb a { color: var(--green-100); }
+.breadcrumb a:hover { color: var(--white); }
+.breadcrumb span { opacity: 0.6; margin: 0 8px; }
+
+.page-hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.page-hero-lead {
+  font-size: 1.05rem;
+  opacity: 0.92;
+  max-width: 720px;
+  line-height: 1.7;
+}
+
+.nav-desktop a.is-active,
+.nav-mobile a.is-active {
+  color: var(--green-600);
+  font-weight: 600;
+}
+
+.tentang-intro-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.tentang-intro-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  border-top: 3px solid var(--green-500);
+}
+
+.tentang-intro-card h2 {
+  font-size: 1.05rem;
+  color: var(--green-800);
+  margin-bottom: 12px;
+}
+
+.tentang-intro-card p {
+  font-size: 0.92rem;
+  color: var(--gray-700);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.tentang-misi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.tentang-misi-box {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gray-100);
+}
+
+.tentang-misi-box h2 {
+  font-size: 1.15rem;
+  color: var(--green-800);
+  margin-bottom: 14px;
+}
+
+.tentang-misi-box p {
+  font-size: 0.92rem;
+  color: var(--gray-700);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.tentang-nilai-title {
+  font-size: 1.25rem;
+  color: var(--green-800);
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.tentang-nilai-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 48px;
+}
+
+.tentang-nilai-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.tentang-nilai-card span {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.tentang-nilai-card h3 {
+  font-size: 0.95rem;
+  color: var(--green-800);
+  margin-bottom: 8px;
+}
+
+.tentang-nilai-card p {
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.tentang-info {
+  max-width: 720px;
+  margin: 0 auto 48px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.tentang-info h2 {
+  font-size: 1.1rem;
+  color: var(--green-800);
+  padding: 20px 24px;
+  margin: 0;
+  border-bottom: 1px solid var(--gray-100);
+  background: var(--green-50);
+}
+
+.tentang-info table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tentang-info th,
+.tentang-info td {
+  padding: 14px 24px;
+  font-size: 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.tentang-info th {
+  width: 38%;
+  color: var(--gray-500);
+  font-weight: 600;
+}
+
+.tentang-info td {
+  color: var(--gray-800);
+}
+
+.tentang-info tr:last-child th,
+.tentang-info tr:last-child td {
+  border-bottom: none;
+}
+
+.tentang-cta {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tentang-cta h2 {
+  font-size: 1.1rem;
+  color: var(--green-800);
+  margin-bottom: 10px;
+}
+
+.tentang-cta p {
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  margin-bottom: 20px;
+}
+
+.tentang-cta-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.tentang-cta-links a {
+  background: var(--green-50);
+  border: 1px solid var(--green-100);
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--green-700);
+}
+
+.tentang-cta-links a:hover {
+  background: var(--green-100);
+}
+
+@media (max-width: 900px) {
+  .tentang-intro-grid,
+  .tentang-misi-grid,
+  .tentang-nilai-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .tentang-info th,
+  .tentang-info td {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+  }
+
+  .tentang-info th {
+    padding-bottom: 4px;
+    border-bottom: none;
+  }
+
+  .tentang-info td {
+    padding-top: 0;
+    padding-bottom: 16px;
+  }
+}

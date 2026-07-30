@@ -1,0 +1,235 @@
+/* 8iifaq.html — Pertanyaan Umum */
+
+.page-hero {
+  background: linear-gradient(160deg, var(--green-900) 0%, var(--green-700) 100%);
+  color: var(--white);
+  padding: 48px 0 56px;
+}
+
+.breadcrumb {
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.breadcrumb a { color: var(--green-100); }
+.breadcrumb a:hover { color: var(--white); }
+.breadcrumb span { opacity: 0.6; margin: 0 8px; }
+
+.page-hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.page-hero-lead {
+  font-size: 1.05rem;
+  opacity: 0.92;
+  max-width: 720px;
+  line-height: 1.7;
+}
+
+.nav-desktop a.is-active,
+.nav-mobile a.is-active {
+  color: var(--green-600);
+  font-weight: 600;
+}
+
+.faq-search {
+  max-width: 800px;
+  margin: 0 auto 24px;
+  padding: 20px 24px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--green-100);
+}
+
+.faq-search-label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--green-800);
+  margin-bottom: 10px;
+}
+
+.faq-search-input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid var(--green-100);
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--gray-900);
+  background: var(--green-50);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.faq-search-input:focus {
+  outline: none;
+  border-color: var(--green-500);
+  box-shadow: 0 0 0 3px rgba(34, 139, 34, 0.12);
+  background: var(--white);
+}
+
+.faq-search-status {
+  margin: 10px 0 0;
+  font-size: 0.88rem;
+  color: var(--gray-600);
+}
+
+.faq-group[hidden] {
+  display: none !important;
+}
+
+.faq-details[hidden] {
+  display: none !important;
+}
+
+/* Category nav */
+.faq-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.faq-cats a {
+  background: var(--white);
+  border: 1px solid var(--green-100);
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--green-700);
+  box-shadow: var(--shadow);
+}
+
+.faq-cats a:hover {
+  background: var(--green-50);
+  color: var(--green-600);
+}
+
+/* FAQ groups */
+.faq-group {
+  max-width: 800px;
+  margin: 0 auto 48px;
+}
+
+.faq-group-title {
+  font-size: 1.15rem;
+  color: var(--green-800);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--green-100);
+}
+
+.faq-group-title span {
+  font-size: 1.2rem;
+  margin-right: 8px;
+}
+
+.faq-details {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 12px;
+  overflow: hidden;
+  border: 1px solid var(--gray-100);
+}
+
+.faq-details[open] {
+  border-left: 4px solid var(--green-500);
+}
+
+.faq-details summary {
+  padding: 18px 24px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--gray-900);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.faq-details summary::-webkit-details-marker { display: none; }
+
+.faq-details summary::after {
+  content: "+";
+  font-size: 1.2rem;
+  color: var(--green-600);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.faq-details[open] summary::after {
+  content: "−";
+}
+
+.faq-details .faq-answer {
+  padding: 0 24px 20px;
+  font-size: 0.92rem;
+  color: var(--gray-700);
+  line-height: 1.7;
+}
+
+.faq-details .faq-answer a {
+  font-weight: 600;
+}
+
+.faq-email {
+  color: var(--green-600);
+  word-break: break-all;
+}
+
+.faq-email:hover {
+  color: var(--green-700);
+  text-decoration: underline;
+}
+
+/* CTA strip */
+.faq-cta-strip {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-cta-strip h3 {
+  color: var(--green-800);
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.faq-cta-strip p {
+  color: var(--gray-500);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.faq-cta-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.faq-cta-links a {
+  background: var(--green-50);
+  border: 1px solid var(--green-100);
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--green-700);
+}
+
+.faq-cta-links a:hover {
+  background: var(--green-100);
+}

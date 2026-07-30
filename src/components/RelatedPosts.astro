@@ -1,0 +1,53 @@
+---
+const {
+  posts = [],
+  currentSlug = "",
+  title = "Artikel Terkait"
+} = Astro.props;
+
+const filteredPosts = posts
+  .filter((post) => post.slug !== currentSlug)
+  .slice(0, 6);
+---
+
+{filteredPosts.length > 0 && (
+  <section class="related-posts">
+
+    <h2>{title}</h2>
+
+    <div class="related-grid">
+
+      {filteredPosts.map((post) => (
+
+        <article class="related-card">
+
+          <a href={`/blog/${post.slug}/`}>
+
+            <img
+              src={post.data.image || `/api/og/${post.slug}.svg`}
+              alt={post.data.title}
+              loading="lazy"
+            />
+
+            <h3>{post.data.title}</h3>
+
+            {post.data.description && (
+              <p>
+                {post.data.description.length > 110
+                  ? post.data.description
+                      .substring(0, 110)
+                      .replace(/\s+\S*$/, "") + "..."
+                  : post.data.description}
+              </p>
+            )}
+
+          </a>
+
+        </article>
+
+      ))}
+
+    </div>
+
+  </section>
+)}

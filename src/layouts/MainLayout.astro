@@ -1,0 +1,66 @@
+---
+import "../styles/global.css";
+import SeoHead from "../components/SeoHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { generateFaqSchema } from "../lib/faq-schema";
+import { homeSchema } from "../lib/home-schema";
+
+const {
+  title,
+  description,
+  canonical,
+  html = "",
+  articleSchema,
+  breadcrumbs,
+  amp,
+  slug,
+  isHome = false
+} = Astro.props;
+
+const faqSchema = generateFaqSchema(html);
+
+
+
+---
+
+<!doctype html>
+<html lang="id">
+<head>
+  <SeoHead
+  title={title}
+  description={description}
+  canonical={canonical}
+  articleSchema={articleSchema}
+  breadcrumbs={breadcrumbs}
+  faqSchema={faqSchema}
+  amp={amp}
+  slug={slug}
+  isHome={isHome}
+/>
+
+{isHome && (
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(homeSchema)}
+  />
+)}
+
+
+<script is:inline>
+  if (localStorage.getItem("theme") === "light") {
+    document.documentElement.classList.add("light-mode");
+  }
+</script>
+</head>
+
+<body>
+
+  <Header />
+
+  <main>
+    <slot />
+  </main>
+
+  <Footer />
+</SeoHead>

@@ -1,0 +1,149 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import "../../styles/aplikasi.css";
+import { getCollection } from "astro:content";
+import { SITE } from "../../lib/site";
+
+export async function getStaticPaths({ paginate }) {
+
+  const apps = await getCollection("aplikasi");
+
+  apps.sort(
+    (a, b) =>
+      new Date(b.data.pubDate).getTime() -
+      new Date(a.data.pubDate).getTime()
+  );
+
+  return paginate(apps, {
+    pageSize: 12,
+  });
+}
+
+const { page } = Astro.props;
+---
+
+<MainLayout
+  title={`Katalog Aplikasi | ${SITE.title}`}
+  description="Daftar aplikasi terbaru"
+  canonical={SITE.url("/aplikasi")}
+>
+
+<section class="page-hero">
+  <div class="container">
+
+    <h1>Katalog Aplikasi</h1>
+
+    <p>
+      Daftar aplikasi terbaru yang tersedia.
+    </p>
+
+  </div>
+</section>
+
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="app-list">
+
+      {page.data.map(({ slug, data }) => (
+
+        <article class="app-row">
+
+          <img
+            src={data.icon || data.image}
+            alt={data.title}
+            class="app-row-icon"
+            width="64"
+            height="64"
+          />
+
+
+          <div class="app-row-body">
+
+            <h2>
+              {data.title}
+            </h2>
+
+
+            <p class="app-row-meta">
+
+              {data.category && (
+                <span>{data.category}</span>
+              )}
+
+              {data.version && (
+                <span>{data.version}</span>
+              )}
+
+              {data.size && (
+                <span>{data.size}</span>
+              )}
+
+            </p>
+
+
+            <p>
+              {data.description}
+            </p>
+
+          </div>
+
+
+          <div class="app-row-action">
+
+            {data.rating && (
+              <span class="app-row-rating">
+                ★ {data.rating}
+              </span>
+            )}
+
+
+            <a
+              href={`/aplikasi/${slug}/`}
+              class="btn btn-outline btn-sm"
+            >
+              Lihat Detail
+            </a>
+
+          </div>
+
+
+        </article>
+
+      ))}
+
+    </div>
+
+
+<nav class="app-pager">
+  {page.url.prev && (
+    <a
+      href={page.url.prev}
+      class="app-pager-prev"
+    >
+      ← Sebelumnya
+    </a>
+  )}
+
+  <span class="app-pager-current">
+    Halaman {page.currentPage} dari {page.lastPage}
+  </span>
+
+  {page.url.next && (
+    <a
+      href={page.url.next}
+      class="app-pager-next"
+    >
+      Berikutnya →
+    </a>
+  )}
+</nav>
+
+
+  </div>
+
+</section>
+
+</MainLayout>

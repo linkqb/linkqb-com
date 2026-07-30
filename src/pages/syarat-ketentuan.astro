@@ -1,0 +1,43 @@
+---
+import "../styles/privasi.css";
+import MainLayout from '../layouts/MainLayout.astro';
+import { SITE } from '../lib/site';
+
+const pageTitle =
+  'About Ai Mr Ferdy - AI, SEO & Digital Modern';
+
+const pageDescription =
+  'Tentang Ai Mr Ferdy, platform digital modern yang fokus pada AI, SEO, automation, teknologi, tools online dan pengembangan website modern ultra cepat.';
+---
+
+<MainLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonical={`${SITE.url()}/about`}
+>
+
+
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Beranda</a>
+        <span>›</span>
+        Syarat &amp; Ketentuan
+      </nav>
+      <h1>Syarat dan Ketentuan Penggunaan Ai Mr Ferdy</h1>
+      <p class="page-hero-lead">Halaman ini menjelaskan syarat dan ketentuan yang mengatur penggunaan situs Ai Mr Ferdy. Dengan menggunakan layanan kami, Anda setuju untuk mematuhi semua ketentuan yang disebutkan. Pastikan untuk membaca dan memahami syarat-syarat ini dengan baik.</p>
+      <p class="privasi-updated">Terakhir diperbarui: <time datetime="2026-07-15">15 Juli 2026</time></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <article class="privasi-content">
+
+        <h2>Syarat dan Ketentuan Penggunaan Ai Mr Ferdy</h2><p>Selamat datang di Ai Mr Ferdy. Dengan mengakses atau menggunakan layanan kami, Anda setuju untuk mematuhi syarat dan ketentuan berikut. Mohon baca dengan seksama sebelum menggunakan situs ini.</p><h3>1. Penerimaan Syarat</h3><p>Dengan menggunakan situs ini, Anda menyetujui semua syarat yang berlaku. Jika Anda tidak setuju, harap tidak melanjutkan penggunaan.</p><h3>2. Penggunaan Konten</h3><p>Semua konten yang terdapat di Ai Mr Ferdy adalah milik kami dan dilindungi oleh hukum hak cipta. Pengguna dilarang melakukan:</p><ul><li>Menyalin atau mendistribusikan konten tanpa izin.</li><li>Menggunakan konten untuk tujuan komersial tanpa izin.</li></ul><h3>3. Kewajiban Pengguna</h3><p>Pengguna bertanggung jawab untuk menjaga kerahasiaan informasi akun dan bertanggung jawab atas semua aktivitas yang terjadi di akun mereka.</p><h3>4. Kebijakan Privasi</h3><p>Kami menghargai privasi Anda. Silakan baca kebijakan privasi kami untuk informasi lebih lanjut tentang bagaimana kami mengumpulkan dan menggunakan data pribadi Anda.</p><h3>5. Penyediaan Layanan</h3><p>Kami berhak untuk mengubah, menangguhkan, atau menghentikan layanan kami tanpa pemberitahuan sebelumnya.</p><h3>6. Batasan Tanggung Jawab</h3><p>Ai Mr Ferdy tidak bertanggung jawab atas kerusakan atau kehilangan yang timbul dari penggunaan situs ini.</p><h3>7. Perubahan Syarat dan Ketentuan</h3><p>Kami dapat memperbarui syarat dan ketentuan ini dari waktu ke waktu. Perubahan akan diinformasikan melalui situs ini.</p><h3>8. Hukum yang Berlaku</h3><p>Syarat dan ketentuan ini diatur oleh hukum yang berlaku di Indonesia.</p>
+
+      </article>
+    </div>
+  </section>
+
+</MainLayout>

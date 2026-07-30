@@ -1,0 +1,86 @@
+/* kebijakan-privasi.html — Kebijakan Privasi */
+
+.page-hero {
+  background: linear-gradient(160deg, var(--green-900) 0%, var(--green-700) 100%);
+  color: var(--white);
+  padding: 48px 0 56px;
+}
+
+.breadcrumb {
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.breadcrumb a { color: var(--green-100); }
+.breadcrumb a:hover { color: var(--white); }
+.breadcrumb span { opacity: 0.6; margin: 0 8px; }
+
+.page-hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.page-hero-lead {
+  font-size: 1.05rem;
+  opacity: 0.92;
+  max-width: 720px;
+  line-height: 1.7;
+}
+
+.privasi-updated {
+  font-size: 0.88rem;
+  opacity: 0.85;
+  margin-top: 16px;
+}
+
+.privasi-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 36px 40px;
+}
+
+.privasi-content h2 {
+  font-size: 1.1rem;
+  color: var(--green-800);
+  margin: 32px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--green-100);
+}
+
+.privasi-content h2:first-child {
+  margin-top: 0;
+}
+
+.privasi-content p {
+  font-size: 0.92rem;
+  color: var(--gray-700);
+  line-height: 1.75;
+  margin: 0 0 12px;
+}
+
+.privasi-content ul {
+  margin: 0 0 16px 20px;
+  padding: 0;
+}
+
+.privasi-content li {
+  font-size: 0.92rem;
+  color: var(--gray-700);
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.privasi-content a {
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .privasi-content {
+    padding: 24px 20px;
+  }
+}

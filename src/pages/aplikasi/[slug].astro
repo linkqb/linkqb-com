@@ -1,0 +1,316 @@
+---
+import "../../styles/game.css";
+import "../../styles/pagegame.css";
+import MainLayout from "../../layouts/MainLayout.astro";
+
+
+import { getCollection, render } from "astro:content";
+import { SITE } from "../../lib/site";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("aplikasi");
+
+  return posts.map((post) => ({
+    params: {
+      slug: post.slug,
+    },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+
+const { Content } = await render(post);
+
+const canonical = `${SITE.url()}/aplikasi/${post.slug}`;
+const data = post.data;
+
+const allApps = await getCollection("aplikasi");
+
+const relatedApps = allApps
+  .filter((app) => app.data.popular && app.slug !== post.slug)
+  .slice(0, 6);
+
+
+---
+
+<MainLayout
+  title={data.title}
+  description={data.description}
+  canonical={canonical}
+  slug={post.slug}
+>
+
+
+
+  <section class="game-hero">
+    <div class="game-hero-bg" aria-hidden="true">
+      <img src="https://Ai Mr Ferdyrp.com/apk/Ai Mr Ferdy-1.webp" alt="">
+    </div>
+    <div class="game-hero-overlay"></div>
+    <div class="container game-hero-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Beranda</a>
+        <span>›</span>
+        <a href="/aplikasi/">Katalog Aplikasi</a>
+        <span>›</span>
+        {data.title}
+      </nav>
+
+      <div class="game-hero-grid">
+        <div class="game-hero-copy">
+          <div class="game-hero-badge-row">
+            <span class="game-tag game-tag-cat">{data.category}</span>
+            <span class="game-hero-verified">✓ Kanal Resmi Ai Mr Ferdy</span>
+          </div>
+          <h1>{data.title}</h1>
+          <p class="game-detail-rating">
+            <span class="game-stars">★★★★★</span>
+            <strong>4.3</strong>
+            <span class="game-rating-sep">·</span>
+            {Math.floor((10000 + [...post.slug].reduce((a, c) => a + c.charCodeAt(0), 0) * 37) / 1000)}K+ unduhan
+          </p>
+          <p class="game-detail-lead">{data.description}</p>
+
+          <div class="game-stat-pills">
+            <div class="game-stat-pill">
+              <span class="game-stat-icon">📦</span>
+              <div>
+                <small>Versi</small>
+                <strong>{data.version}</strong>
+              </div>
+            </div>
+            <div class="game-stat-pill">
+              <span class="game-stat-icon">💾</span>
+              <div>
+                <small>Ukuran</small>
+                <strong>{data.size}</strong>
+              </div>
+            </div>
+            <div class="game-stat-pill">
+              <span class="game-stat-icon">🎮</span>
+              <div>
+                <small>Kategori</small>
+                <strong>{data.category}</strong>
+              </div>
+            </div>
+            <div class="game-stat-pill">
+              <span class="game-stat-icon">📅</span>
+              <div>
+                <small>Diperbarui</small>
+                <strong>{data.updated}</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="game-hero-panel">
+          <div class="game-panel-card">
+            <div class="game-panel-icon-wrap">
+             <img src={data.hero} alt={data.title} class="game-detail-icon" width="88" height="88" />
+            </div>
+            <p class="game-panel-name">Ai Mr Ferdy</p>
+            <p class="game-panel-label">Unduh melalui Ai Mr Ferdy</p>
+            <a href="/odbmndfk.html" rel="noopener noreferrer nofollow" class="btn btn-primary game-btn-download">⬇ Unduh APK v5.4.2</a>
+            <p class="game-panel-meta">{data.size} · {data.category} · {data.updated}</p>
+            <ul class="game-panel-trust">
+              <li>Hash SHA-256 terverifikasi</li>
+              <li>Tanpa registrasi wajib</li>
+              <li>Kompatibel Android 6.0+</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section game-body">
+    <div class="container game-layout">
+
+      <main class="game-main">
+
+        <figure class="game-hero-shot">
+          <div class="game-shot-glow"></div>
+          <div class="game-shot-frame">
+            <img src={data.hero} alt={data.title} width="1024" height="512" loading="lazy" decoding="async">
+          </div>
+          <figcaption class="game-shot-caption">Screenshot utama {data.title}.</figcaption>
+        </figure>
+
+        <article class="game-block game-article">
+          <header class="game-section-head">
+            <span class="game-section-num">01</span>
+            <h2>Tentang Aplikasi</h2>
+          </header>
+          <div class="game-article-body">
+<Content />
+          </div>
+        </article>
+		
+{(data.pembaruanTerbaru || data.pembaruanSebelumnya) && (
+  <div class="game-update-grid">
+
+    {data.pembaruanTerbaru && (
+      <article class="game-block game-update game-update-new">
+        <header class="game-section-head game-section-head-sm">
+          <span class="game-section-num">02</span>
+          <h2>Pembaruan Terbaru</h2>
+        </header>
+
+        <p>{data.pembaruanTerbaru}</p>
+      </article>
+    )}
+
+    {data.pembaruanSebelumnya && (
+      <article class="game-block game-update game-update-prev">
+        <header class="game-section-head game-section-head-sm">
+          <span class="game-section-num">03</span>
+          <h2>Pembaruan Sebelumnya</h2>
+        </header>
+
+        <p>{data.pembaruanSebelumnya}</p>
+      </article>
+    )}
+
+  </div>
+)}
+
+
+
+
+{(data.kelebihan?.length || data.kekurangan?.length) && (
+  <div class="game-pros-cons">
+
+    {data.kelebihan?.length > 0 && (
+      <article class="game-block game-pros-block">
+        <header class="game-section-head game-section-head-sm">
+          <span class="game-section-num">04</span>
+          <h2>Kelebihan</h2>
+        </header>
+
+        <ul class="game-pros">
+          {data.kelebihan.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </article>
+    )}
+
+    {data.kekurangan?.length > 0 && (
+      <article class="game-block game-cons-block">
+        <header class="game-section-head game-section-head-sm">
+          <span class="game-section-num">05</span>
+          <h2>Kekurangan</h2>
+        </header>
+
+        <ul class="game-cons">
+          {data.kekurangan.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </article>
+    )}
+
+  </div>
+)}
+
+        
+		
+		
+{data.ulasan?.length > 0 && (
+  <article class="game-block game-reviews-block">
+    <header class="game-section-head">
+      <span class="game-section-num">06</span>
+      <h2>Ulasan Pengguna</h2>
+    </header>
+
+    <div class="game-reviews">
+      {data.ulasan.map((item, index) => (
+        <figure class={`game-review-card ${index === 2 ? "game-review-featured" : ""}`}>
+          <div class="game-review-quote" aria-hidden="true">"</div>
+
+          <figcaption class="rec-block-label">
+            {item.nama}
+          </figcaption>
+
+          <blockquote>
+            <p>{item.komentar}</p>
+          </blockquote>
+        </figure>
+      ))}
+    </div>
+  </article>
+)}
+
+  
+  
+{data.faq?.length > 0 && (
+  <article class="game-block game-faq">
+    <header class="game-section-head">
+      <span class="game-section-num">07</span>
+      <h2>Pertanyaan Umum</h2>
+    </header>
+
+    <div class="game-faq-list">
+      {data.faq.map((item) => (
+        <details class="game-faq-details">
+          <summary>{item.pertanyaan}</summary>
+
+          <div class="game-faq-answer">
+            <p>{item.jawaban}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </article>
+)}
+
+
+
+
+{relatedApps.length > 0 && (
+  <article class="game-block game-related">
+    <header class="game-section-head">
+      <span class="game-section-num">08</span>
+      <h2>Aplikasi Populer</h2>
+    </header>
+
+<div class="game-related-grid">
+  {relatedApps.map((item) => {
+    const data = item.data;
+
+    return (
+      <a href={`/aplikasi/${item.slug}/`} class="game-related-card">
+        <img
+          src={data.icon}
+          alt={data.title}
+          class="game-related-icon"
+          width="52"
+          height="52"
+        />
+
+        <span class="game-related-name">
+          {data.title}
+        </span>
+
+        <span class="game-related-meta">
+          {data.category} · {data.version}
+        </span>
+
+        <span class="game-related-rating">
+          ★ {data.rating}
+        </span>
+      </a>
+    );
+  })}
+</div>
+  </article>
+)}
+
+        <p class="game-back-link"><a href="/">← Kembali ke Katalog Aplikasi</a></p>
+      </main>
+
+    </div>
+  </section>
+
+</MainLayout>

@@ -1,0 +1,54 @@
+---
+const slugify = (text) =>
+  text
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-");
+
+const {
+  html = "",
+  headings = []
+} = Astro.props;
+
+let items = [];
+
+if (headings.length > 0) {
+  items = headings.map((item) => ({
+    level: item.depth,
+    text: item.text,
+    id: item.slug
+  }));
+} else {
+  const regex = /^(##|###|####)\s+(.*)$/gm;
+
+  let match;
+
+  while ((match = regex.exec(html)) !== null) {
+    items.push({
+      level: match[1].length,
+      text: match[2].trim(),
+      id: slugify(match[2].trim())
+    });
+  }
+}
+---
+
+{items.length > 0 && (
+  <details class="toc" open>
+    <summary class="toc-title">
+      <span>📑 Daftar Isi</span>
+      <span class="toc-toggle"></span>
+    </summary>
+
+    <ul>
+      {items.map((item) => (
+        <li class={`toc-level-${item.level}`}>
+          <a href={`#${item.id}`}>
+            {item.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </details>
+)}

@@ -1,0 +1,180 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { SITE } from "../../lib/site";
+import { getCollection } from "astro:content";
+import "../../styles/aplikasi.css";
+
+
+export async function getStaticPaths({ paginate }) {
+
+  const posts = await getCollection("blog");
+
+  posts.sort(
+    (a, b) =>
+      new Date(b.data.pubDate).getTime() -
+      new Date(a.data.pubDate).getTime()
+  );
+
+
+  return paginate(posts, {
+    pageSize: 10,
+  });
+
+}
+
+
+const { page } = Astro.props;
+---
+
+
+<MainLayout
+  title={`Blog | ${SITE.title}`}
+  description={SITE.description}
+  canonical={SITE.url("/blog")}
+>
+
+
+<section class="page-hero">
+
+  <div class="container">
+
+    <h1>
+      Blog
+    </h1>
+
+    <p>
+      Artikel terbaru tentang AI, Astro,
+      Cloudflare Workers dan web development.
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<section class="section">
+
+<div class="container">
+
+
+<div class="app-list">
+
+
+{page.data.map(({ slug, data }) => (
+
+<article class="app-row">
+
+
+<img
+  src={data.image || SITE.url(`/api/og/${slug}.svg`)}
+  alt={data.title}
+  class="app-row-icon"
+  width="64"
+  height="64"
+/>
+
+
+
+<div class="app-row-body">
+
+
+<h2>
+  {data.title}
+</h2>
+
+
+
+<p class="app-row-meta">
+
+  {data.category && (
+    <span>
+      {data.category}
+    </span>
+  )}
+
+
+  <span>
+    {data.pubDate.toLocaleDateString("id-ID")}
+  </span>
+
+</p>
+
+
+
+<p>
+  {data.description}
+</p>
+
+
+</div>
+
+
+
+<div class="app-row-action">
+
+
+<a
+ href={`/blog/${slug}/`}
+ class="btn btn-outline btn-sm"
+>
+ Baca Artikel
+</a>
+
+
+</div>
+
+
+
+</article>
+
+
+))}
+
+
+</div>
+
+<nav class="app-pager">
+  {page.url.prev && (
+    <a
+      href={page.url.prev}
+      class="app-pager-prev"
+    >
+      ← Sebelumnya
+    </a>
+  )}
+
+  {Array.from(
+    { length: page.lastPage },
+    (_, i) => i + 1
+  ).map((number) => (
+    <a
+      href={
+        number === 1
+          ? "/blog/"
+          : `/blog/${number}/`
+      }
+      class:list={[
+        number === page.currentPage && "app-pager-current"
+      ]}
+    >
+      {number}
+    </a>
+  ))}
+
+  {page.url.next && (
+    <a
+      href={page.url.next}
+      class="app-pager-next"
+    >
+      Berikutnya →
+    </a>
+  )}
+</nav>
+
+
+</div>
+
+</section>
+
+</MainLayout>
