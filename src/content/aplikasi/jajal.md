@@ -15,10 +15,10 @@ downloads: 26K+
 android: Android 6.0+
 updated: 20 Juli 2026
 
-hero: https://cakra777rp.com/apk/yyrr-1.webp
-icon: https://cakra777rp.com/apk/yyrr.webp
+hero: https://linkqb.com/img/default.png
+icon: https://linkqb.com/img/icon.png
 
-download: /odbmndfk.html
+download: /go
 
 pembaruanTerbaru: Pembaruan terbaru Ai Mr Ferdy membawa fitur gameplay yang lebih halus dan sistem kontrol yang lebih responsif, memberikan pengalaman bermain yang lebih baik.
 
