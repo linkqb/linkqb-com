@@ -8,38 +8,36 @@ export const homeSchema = {
   "@context": "https://schema.org",
   "@graph": [
     // Organization
-    {
-      "@type": "Organization",
-      "@id": `${URL}/#organization`,
-      "name": SITE.name,
-      "description": SITE.description,
-      "url": SITE.url(),
-      "logo": {
-        "@id": `${URL}${SITE.image}`
-      },
-      "image": {
-        "@id": `${URL}${SITE.image}`
-      },
-      "knowsAbout": [
-        "Artificial Intelligence",
-        "SEO",
-        "Automation",
-        "Cloudflare Workers",
-        "Astro",
-        "Web Development"
-      ],
-    }
-  ]
-};
-      "sameAs": [
+{
+  "@type": "Organization",
+  "@id": `${URL}/#organization`,
+  "name": SITE.name,
+  "description": SITE.description,
+  "url": SITE.url(),
+  "logo": {
+    "@id": `${URL}${SITE.image}`
+  },
+  "image": {
+    "@id": `${URL}${SITE.image}`
+  },
+  "knowsAbout": [
+    "Artificial Intelligence",
+    "SEO",
+    "Automation",
+    "Cloudflare Workers",
+    "Astro",
+    "Web Development"
+  ],
+  "sameAs": [
     "https://www.youtube.com/@ai-mr-ferdy",
     "https://www.instagram.com/aimrferdyofficial",
     "https://medium.com/@aimrferdy",
     "https://github.com/aimrfredy",
     "https://web.facebook.com/groups/aimrferdyofficial",
     "https://heylink.me/mrferdy"
-      ]
-    },
+  ]
+},
+
 
    // Person
 {
