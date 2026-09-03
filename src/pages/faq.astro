@@ -4,226 +4,387 @@ import MainLayout from '../layouts/MainLayout.astro';
 import { SITE } from '../lib/site';
 
 const pageTitle =
-  'FAQ AI Mr Ferdy - Pertanyaan Umum Seputar Game Online, Teknologi, Aplikasi & Tips Digital';
+  'FAQ AI Mr Ferdy - Pertanyaan Umum Seputar AI, Teknologi & Solusi Digital';
 
 const pageDescription =
-  'Temukan jawaban atas berbagai pertanyaan seputar AI Mr Ferdy, portal informasi yang membahas game online, teknologi terbaru, aplikasi, keamanan siber, tutorial, tips digital, dan hiburan digital. Dapatkan informasi lengkap, akurat, dan selalu diperbarui.';
+  'Temukan jawaban atas berbagai pertanyaan seputar AI Mr Ferdy, platform AI Indonesia yang menyediakan AI Tools, teknologi digital, otomatisasi, aplikasi, SEO, tutorial, dan solusi produktivitas digital.';
 ---
 
 <MainLayout
   title={pageTitle}
   description={pageDescription}
-  canonical={`${SITE.url()}/faq`}
+  canonical={SITE.url('faq')}
 >
 
-
   <!-- Hero -->
-<section class="page-hero">
-  <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Beranda</a>
-      <span>›</span>
-      FAQ
-    </nav>
+  <section class="page-hero">
+    <div class="container">
 
-    <h1>FAQ AI Mr Ferdy: Pertanyaan Umum Seputar Game Online, Teknologi & Dunia Digital</h1>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Beranda</a>
+        <span>›</span>
+        FAQ
+      </nav>
 
-    <p class="page-hero-lead">
-      Temukan jawaban atas berbagai pertanyaan mengenai AI Mr Ferdy, mulai dari game online, teknologi terbaru, aplikasi, keamanan siber, tutorial, tips digital, hingga berbagai informasi dan hiburan digital yang selalu diperbarui.
-    </p>
-  </div>
-</section>
+      <h1>
+        FAQ AI Mr Ferdy: Pertanyaan Umum Seputar AI, Teknologi & Solusi Digital
+      </h1>
 
-<!-- FAQ Body -->
-<section class="section">
-  <div class="container">
+      <p class="page-hero-lead">
+        Temukan jawaban atas berbagai pertanyaan mengenai AI Mr Ferdy,
+        mulai dari AI Tools, teknologi digital, otomatisasi, aplikasi,
+        SEO, keamanan digital, tutorial, hingga berbagai solusi
+        produktivitas yang tersedia dalam ekosistem AI Mr Ferdy.
+      </p>
 
-    <div class="faq-search" role="search">
-      <label class="faq-search-label" for="faqSearchInput">Cari pertanyaan</label>
-      <input type="search" id="faqSearchInput" class="faq-search-input" placeholder="Ketik kata kunci, misalnya game, teknologi, aplikasi, tutorial…" autocomplete="off" enterkeyhint="search">
-      <p class="faq-search-status" id="faqSearchStatus" aria-live="polite" hidden></p>
     </div>
+  </section>
 
-    <div class="faq-cats">
-      <a href="#game">Game Online</a>
-      <a href="#teknologi">Teknologi</a>
-      <a href="#aplikasi">Aplikasi</a>
-      <a href="#keamanan">Keamanan Siber</a>
-      <a href="#tutorial">Tutorial</a>
-      <a href="#dukungan">Informasi</a>
-    </div>
+  <!-- FAQ Body -->
+  <section class="section">
+    <div class="container">
 
-    <!-- Game Online -->
-    <div class="faq-group" id="game">
-      <h2 class="faq-group-title"><span>🎮</span> Game Online</h2>
+      <div class="faq-search" role="search">
+        <label class="faq-search-label" for="faqSearchInput">
+          Cari pertanyaan
+        </label>
 
-      <details class="faq-details">
-        <summary>Apa saja yang dibahas AI Mr Ferdy tentang game online?</summary>
-        <div class="faq-answer">
-          <p>AI Mr Ferdy menyajikan artikel mengenai game online, mulai dari berita terbaru, ulasan, tips bermain, strategi, hingga berbagai informasi menarik yang sedang menjadi tren.</p>
-        </div>
-      </details>
+        <input
+          type="search"
+          id="faqSearchInput"
+          class="faq-search-input"
+          placeholder="Ketik kata kunci, misalnya AI, tools, teknologi, aplikasi, SEO…"
+          autocomplete="off"
+          enterkeyhint="search"
+        >
 
-      <details class="faq-details">
-        <summary>Apakah informasi game selalu diperbarui?</summary>
-        <div class="faq-answer">
-          <p>Ya. Konten game online diperbarui secara berkala agar pembaca memperoleh informasi terbaru sesuai perkembangan industri gaming.</p>
-        </div>
-      </details>
-
-      <details class="faq-details">
-        <summary>Apakah AI Mr Ferdy membahas game mobile dan PC?</summary>
-        <div class="faq-answer">
-          <p>Tentu. Artikel mencakup berbagai platform, termasuk game Android, iOS, PC, maupun topik lain yang sedang populer.</p>
-        </div>
-      </details>
-    </div>
-
-    <!-- Teknologi -->
-    <div class="faq-group" id="teknologi">
-      <h2 class="faq-group-title"><span>💻</span> Teknologi</h2>
-
-      <details class="faq-details">
-        <summary>Topik teknologi apa yang tersedia?</summary>
-        <div class="faq-answer">
-          <p>AI Mr Ferdy membahas perkembangan teknologi, gadget, inovasi digital, kecerdasan buatan, layanan online, hingga berbagai tren teknologi terbaru.</p>
-        </div>
-      </details>
-
-      <details class="faq-details">
-        <summary>Apakah artikel teknologi cocok untuk pemula?</summary>
-        <div class="faq-answer">
-          <p>Ya. Seluruh pembahasan menggunakan bahasa yang sederhana sehingga mudah dipahami baik oleh pemula maupun pengguna berpengalaman.</p>
-        </div>
-      </details>
-
-      <details class="faq-details">
-        <summary>Seberapa sering artikel teknologi diperbarui?</summary>
-        <div class="faq-answer">
-          <p>Kami melakukan pembaruan secara rutin agar informasi yang disajikan tetap relevan, akurat, dan mengikuti perkembangan terbaru.</p>
-        </div>
-      </details>
-    </div>
-
-    <!-- Aplikasi -->
-    <div class="faq-group" id="aplikasi">
-      <h2 class="faq-group-title"><span>📱</span> Aplikasi</h2>
-
-      <details class="faq-details">
-        <summary>Apakah AI Mr Ferdy mengulas berbagai aplikasi?</summary>
-        <div class="faq-answer">
-          <p>Ya. Kami menghadirkan ulasan aplikasi, rekomendasi, fitur terbaru, kelebihan, kekurangan, serta tips penggunaan untuk membantu pembaca memilih aplikasi yang sesuai.</p>
-        </div>
-      </details>
-
-      <details class="faq-details">
-        <summary>Apakah tersedia tutorial penggunaan aplikasi?</summary>
-        <div class="faq-answer">
-          <p>Tersedia. Berbagai tutorial disusun langkah demi langkah agar mudah diikuti oleh semua kalangan.</p>
-        </div>
-      </details>
-
-      <details class="faq-details">
-        <summary>Bagaimana cara menemukan artikel aplikasi tertentu?</summary>
-        <div class="faq-answer">
-          <p>Gunakan fitur pencarian di halaman ini atau telusuri kategori aplikasi untuk menemukan pembahasan yang diinginkan.</p>
-        </div>
-      </details>
-    </div>
-
-    <!-- Keamanan -->
-    <div class="faq-group" id="keamanan">
-      <h2 class="faq-group-title"><span>🔒</span> Keamanan Siber</h2>
-
-      <details class="faq-details">
-        <summary>Apakah AI Mr Ferdy membahas keamanan siber?</summary>
-        <div class="faq-answer">
-          <p>Ya. Kami menyediakan berbagai artikel mengenai keamanan siber, perlindungan data pribadi, keamanan akun, serta tips menjaga aktivitas digital tetap aman.</p>
-        </div>
-      </details>
-
-      <details class="faq-details">
-        <summary>Bagaimana cara meningkatkan keamanan saat beraktivitas online?</summary>
-        <div class="faq-answer">
-          <p>Gunakan kata sandi yang kuat, aktifkan autentikasi dua faktor, lakukan pembaruan perangkat secara rutin, dan hindari mengakses tautan yang tidak terpercaya.</p>
-        </div>
-      </details>
-
-      <details class="faq-details">
-        <summary>Apakah informasi keamanan selalu diperbarui?</summary>
-        <div class="faq-answer">
-          <p>Tentu. Kami mengikuti perkembangan ancaman digital terbaru agar pembaca mendapatkan informasi yang relevan dan bermanfaat.</p>
-        </div>
-      </details>
-    </div>
-
-    <!-- Tutorial -->
-    <div class="faq-group" id="tutorial">
-      <h2 class="faq-group-title"><span>📚</span> Tutorial & Tips Digital</h2>
-
-      <details class="faq-details">
-        <summary>Jenis tutorial apa yang tersedia?</summary>
-        <div class="faq-answer">
-          <p>AI Mr Ferdy menyediakan tutorial seputar teknologi, aplikasi, pengaturan perangkat, serta berbagai tips digital yang dapat diterapkan dalam aktivitas sehari-hari.</p>
-        </div>
-      </details>
-
-      <details class="faq-details">
-        <summary>Apakah tutorial mudah dipahami?</summary>
-        <div class="faq-answer">
-          <p>Ya. Seluruh panduan dibuat secara sistematis dengan langkah-langkah yang jelas sehingga mudah diikuti oleh pembaca.</p>
-        </div>
-      </details>
-
-      <details class="faq-details">
-        <summary>Apakah ada tips digital terbaru setiap saat?</summary>
-        <div class="faq-answer">
-          <p>Kami rutin menerbitkan artikel baru berisi tips digital, solusi praktis, serta informasi yang mengikuti perkembangan dunia teknologi.</p>
-        </div>
-      </details>
-    </div>
-
-    <!-- Dukungan -->
-    <div class="faq-group" id="dukungan">
-      <h2 class="faq-group-title"><span>ℹ️</span> Informasi Umum</h2>
-
-      <details class="faq-details">
-        <summary>Apa tujuan AI Mr Ferdy?</summary>
-        <div class="faq-answer">
-          <p>AI Mr Ferdy hadir sebagai portal informasi yang menyajikan artikel berkualitas mengenai game online, teknologi, aplikasi, keamanan siber, tutorial, tips digital, serta hiburan digital.</p>
-        </div>
-      </details>
-
-      <details class="faq-details">
-        <summary>Apakah konten AI Mr Ferdy diperbarui secara berkala?</summary>
-        <div class="faq-answer">
-          <p>Ya. Seluruh artikel diperbarui secara rutin agar informasi yang tersedia tetap akurat, relevan, dan sesuai dengan perkembangan terbaru.</p>
-        </div>
-      </details>
-
-      <details class="faq-details">
-        <summary>Bagaimana cara mengikuti artikel terbaru?</summary>
-        <div class="faq-answer">
-          <p>Anda dapat mengunjungi AI Mr Ferdy secara berkala untuk menemukan artikel terbaru mengenai game online, teknologi, aplikasi, keamanan siber, tutorial, dan hiburan digital.</p>
-        </div>
-      </details>
-    </div>
-
-    <!-- CTA -->
-    <div class="faq-cta-strip">
-      <h3>Masih punya pertanyaan?</h3>
-      <p>Jelajahi artikel terbaru AI Mr Ferdy untuk mendapatkan informasi, tutorial, tips digital, dan pembahasan teknologi yang lebih lengkap.</p>
-
-      <div class="faq-cta-links">
-        <a href="/Ai Mr Ferdyinstal/">Tutorial & Panduan</a>
-        <a href="/Ai Mr Ferdypembaruan/">Artikel Terbaru</a>
-        <a href="/cdn-cgi/l/email-protection#ea8e9f819f848d8b84aa898b81988bdddddd989ac4898587"><span class="__cf_email__" data-cfemail="7115041a041f16101f3112101a031046464603015f121e1c">[email&#160;protected]</span></a>
+        <p
+          class="faq-search-status"
+          id="faqSearchStatus"
+          aria-live="polite"
+          hidden
+        ></p>
       </div>
+
+      <div class="faq-cats">
+        <a href="#ai">AI & AI Tools</a>
+        <a href="#teknologi">Teknologi</a>
+        <a href="#aplikasi">Aplikasi</a>
+        <a href="#keamanan">Keamanan Digital</a>
+        <a href="#tutorial">Tutorial</a>
+        <a href="#dukungan">Informasi</a>
+      </div>
+
+      <!-- AI & AI Tools -->
+      <div class="faq-group" id="ai">
+
+        <h2 class="faq-group-title">
+          <span>🤖</span> AI & AI Tools
+        </h2>
+
+        <details class="faq-details">
+          <summary>Apa itu AI Mr Ferdy?</summary>
+
+          <div class="faq-answer">
+            <p>
+              AI Mr Ferdy adalah platform AI Indonesia yang menghadirkan
+              berbagai AI Tools, teknologi digital, otomatisasi,
+              aplikasi, dan solusi produktivitas untuk membantu pengguna
+              memanfaatkan kecerdasan buatan dalam berbagai kebutuhan.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-details">
+          <summary>AI Tools apa yang tersedia di AI Mr Ferdy?</summary>
+
+          <div class="faq-answer">
+            <p>
+              AI Mr Ferdy menyediakan berbagai tools berbasis
+              kecerdasan buatan untuk mendukung pembuatan konten,
+              produktivitas, otomatisasi, SEO, pengembangan website,
+              dan kebutuhan digital lainnya.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-details">
+          <summary>Siapa yang dapat menggunakan AI Mr Ferdy?</summary>
+
+          <div class="faq-answer">
+            <p>
+              AI Mr Ferdy dapat digunakan oleh pengguna teknologi,
+              kreator konten, pengembang, pelaku usaha, maupun pengguna
+              umum yang ingin memanfaatkan AI dan teknologi digital
+              untuk meningkatkan produktivitas.
+            </p>
+          </div>
+        </details>
+
+      </div>
+
+      <!-- Teknologi -->
+      <div class="faq-group" id="teknologi">
+
+        <h2 class="faq-group-title">
+          <span>💻</span> Teknologi
+        </h2>
+
+        <details class="faq-details">
+          <summary>Topik teknologi apa yang tersedia?</summary>
+
+          <div class="faq-answer">
+            <p>
+              AI Mr Ferdy membahas berbagai perkembangan teknologi,
+              kecerdasan buatan, pengembangan website, aplikasi,
+              layanan digital, otomatisasi, serta berbagai teknologi
+              modern yang relevan dengan kebutuhan pengguna.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-details">
+          <summary>Apakah informasi teknologi cocok untuk pemula?</summary>
+
+          <div class="faq-answer">
+            <p>
+              Ya. Pembahasan teknologi di AI Mr Ferdy disajikan dengan
+              bahasa yang sederhana agar dapat dipahami oleh pemula
+              maupun pengguna yang sudah berpengalaman.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-details">
+          <summary>Seberapa sering informasi teknologi diperbarui?</summary>
+
+          <div class="faq-answer">
+            <p>
+              Informasi dan artikel diperbarui secara berkala mengikuti
+              perkembangan teknologi dan kebutuhan pengguna.
+            </p>
+          </div>
+        </details>
+
+      </div>
+
+      <!-- Aplikasi -->
+      <div class="faq-group" id="aplikasi">
+
+        <h2 class="faq-group-title">
+          <span>📱</span> Aplikasi
+        </h2>
+
+        <details class="faq-details">
+          <summary>Apakah AI Mr Ferdy membahas berbagai aplikasi?</summary>
+
+          <div class="faq-answer">
+            <p>
+              Ya. AI Mr Ferdy menyediakan informasi mengenai berbagai
+              aplikasi, fitur, penggunaan, pembaruan, serta teknologi
+              yang berkaitan dengan aplikasi digital.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-details">
+          <summary>Apakah tersedia tutorial penggunaan aplikasi?</summary>
+
+          <div class="faq-answer">
+            <p>
+              Tersedia. Berbagai tutorial disusun dengan langkah-langkah
+              yang jelas agar mudah diikuti oleh pengguna.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-details">
+          <summary>Bagaimana cara menemukan aplikasi tertentu?</summary>
+
+          <div class="faq-answer">
+            <p>
+              Anda dapat menggunakan fitur pencarian atau mengunjungi
+              bagian aplikasi untuk menemukan informasi mengenai aplikasi
+              yang tersedia di AI Mr Ferdy.
+            </p>
+          </div>
+        </details>
+
+      </div>
+
+      <!-- Keamanan -->
+      <div class="faq-group" id="keamanan">
+
+        <h2 class="faq-group-title">
+          <span>🔒</span> Keamanan Digital
+        </h2>
+
+        <details class="faq-details">
+          <summary>Apakah AI Mr Ferdy membahas keamanan digital?</summary>
+
+          <div class="faq-answer">
+            <p>
+              Ya. AI Mr Ferdy membahas keamanan digital, keamanan akun,
+              perlindungan data, privasi, serta berbagai tips untuk
+              menjaga aktivitas digital tetap aman.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-details">
+          <summary>
+            Bagaimana cara meningkatkan keamanan saat beraktivitas online?
+          </summary>
+
+          <div class="faq-answer">
+            <p>
+              Gunakan kata sandi yang kuat, aktifkan autentikasi dua
+              faktor, lakukan pembaruan perangkat secara rutin, dan
+              hindari membuka tautan atau memasang aplikasi dari sumber
+              yang tidak terpercaya.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-details">
+          <summary>Apakah informasi keamanan diperbarui?</summary>
+
+          <div class="faq-answer">
+            <p>
+              Informasi keamanan diperbarui secara berkala agar tetap
+              relevan dengan perkembangan teknologi dan ancaman digital.
+            </p>
+          </div>
+        </details>
+
+      </div>
+
+      <!-- Tutorial -->
+      <div class="faq-group" id="tutorial">
+
+        <h2 class="faq-group-title">
+          <span>📚</span> Tutorial & Tips Digital
+        </h2>
+
+        <details class="faq-details">
+          <summary>Jenis tutorial apa yang tersedia?</summary>
+
+          <div class="faq-answer">
+            <p>
+              AI Mr Ferdy menyediakan tutorial seputar AI, teknologi,
+              aplikasi, SEO, website, otomatisasi, serta berbagai tips
+              digital yang dapat diterapkan dalam aktivitas sehari-hari.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-details">
+          <summary>Apakah tutorial mudah dipahami?</summary>
+
+          <div class="faq-answer">
+            <p>
+              Ya. Panduan dibuat secara sistematis dengan langkah-langkah
+              yang jelas sehingga dapat diikuti oleh pengguna dengan
+              berbagai tingkat pengalaman.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-details">
+          <summary>Apakah tersedia tips digital terbaru?</summary>
+
+          <div class="faq-answer">
+            <p>
+              AI Mr Ferdy secara berkala menyediakan informasi dan tips
+              mengenai AI, teknologi, aplikasi, produktivitas,
+              keamanan digital, dan perkembangan teknologi terbaru.
+            </p>
+          </div>
+        </details>
+
+      </div>
+
+      <!-- Dukungan -->
+      <div class="faq-group" id="dukungan">
+
+        <h2 class="faq-group-title">
+          <span>ℹ️</span> Informasi Umum
+        </h2>
+
+        <details class="faq-details">
+          <summary>Apa tujuan AI Mr Ferdy?</summary>
+
+          <div class="faq-answer">
+            <p>
+              AI Mr Ferdy hadir sebagai platform AI Indonesia yang
+              menyediakan AI Tools, teknologi digital, otomatisasi,
+              aplikasi, informasi, tutorial, dan berbagai solusi
+              produktivitas digital.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-details">
+          <summary>Apakah konten AI Mr Ferdy diperbarui secara berkala?</summary>
+
+          <div class="faq-answer">
+            <p>
+              Ya. Konten dan informasi diperbarui secara berkala agar
+              tetap relevan dengan perkembangan AI, teknologi digital,
+              aplikasi, dan kebutuhan pengguna.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-details">
+          <summary>Bagaimana cara mengikuti informasi terbaru?</summary>
+
+          <div class="faq-answer">
+            <p>
+              Anda dapat mengunjungi AI Mr Ferdy secara berkala untuk
+              menemukan AI Tools, aplikasi, artikel, tutorial,
+              pembaruan, dan informasi teknologi terbaru.
+            </p>
+          </div>
+        </details>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="faq-cta-strip">
+
+        <h3>Masih punya pertanyaan?</h3>
+
+        <p>
+          Jelajahi AI Mr Ferdy untuk menemukan AI Tools, tutorial,
+          aplikasi, informasi teknologi, dan berbagai solusi digital
+          lainnya.
+        </p>
+
+        <div class="faq-cta-links">
+
+          <a href="/aplikasi/">
+            Aplikasi
+          </a>
+
+          <a href="/ai/">
+            AI Tools
+          </a>
+
+          <a href="/pembaruan/">
+            Pembaruan
+          </a>
+
+          <a href="/tentang-kami/">
+            Tentang AI Mr Ferdy
+          </a>
+
+        </div>
+
+      </div>
+
     </div>
-
-  </div>
-</section>
-
+  </section>
 
 <script is:inline>
 (function () {
@@ -284,4 +445,5 @@ const pageDescription =
   input.addEventListener('search', applyFilter);
 })();
 </script>
+
 </MainLayout>
