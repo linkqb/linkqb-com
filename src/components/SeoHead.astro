@@ -23,7 +23,6 @@ const {
   isHome = false
 } = Astro.props;
 
-// AUTO OG IMAGE
 const imageUrl = slug
   ? SITE.url(`/api/og/${slug}.svg`)
   : SITE.imageUrl(SITE.image);
@@ -46,11 +45,8 @@ const imageUrl = slug
 <link rel="canonical" href={canonical} />
 <link rel="alternate" hreflang="id-ID" href={canonical} />
 
-<link rel="icon" href="/images/fav.webp" type="image/webp">
-<link rel="apple-touch-icon" href="/images/fav.webp">
-<meta name="theme-color" content="#0b0f19">
-
-
+<link rel="icon" href="/images/fav.webp" type="image/webp" />
+<link rel="apple-touch-icon" href="/images/fav.webp" />
 
 {amp && (
   <link rel="amphtml" href={amp} />
@@ -62,7 +58,7 @@ const imageUrl = slug
 <meta property="og:description" content={description} />
 <meta property="og:image" content={imageUrl} />
 <meta property="og:url" content={canonical} />
-<meta property="og:site_name" content={SITE.title} />
+<meta property="og:site_name" content={SITE.name} />
 
 <!-- Twitter -->
 <meta
@@ -74,21 +70,20 @@ const imageUrl = slug
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageUrl} />
 
-
 <link
   rel="alternate"
   type="application/rss+xml"
   title={SITE.title}
   href={SITE.url("/rss.xml")}
 />
-<!-- preload -->
+
 <link
   rel="preload"
   href={imageUrl}
   as="image"
 />
 
-<!-- schema -->
+<!-- Organization + WebSite -->
 {!isHome && (
   <>
     <script
@@ -103,6 +98,7 @@ const imageUrl = slug
   </>
 )}
 
+<!-- Breadcrumb -->
 {breadcrumbs && (
   <script
     type="application/ld+json"
@@ -110,6 +106,7 @@ const imageUrl = slug
   />
 )}
 
+<!-- Article -->
 {articleSchema && (
   <script
     type="application/ld+json"
@@ -117,6 +114,7 @@ const imageUrl = slug
   />
 )}
 
+<!-- Software -->
 {softwareSchema && (
   <script
     type="application/ld+json"
@@ -124,6 +122,7 @@ const imageUrl = slug
   />
 )}
 
+<!-- FAQ -->
 {faqSchema && (
   <script
     type="application/ld+json"
