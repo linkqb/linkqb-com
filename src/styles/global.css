@@ -140,16 +140,16 @@ a:hover { color: var(--green-500); }
 }
 
 .nav-btn-primary {
+background: var(--green-700);
+  border-color: var(--green-700);
   color: var(--white);
-  background: var(--green-600);
-  border: 2px solid var(--green-600);
-  box-shadow: 0 1px 4px rgba(22, 101, 52, 0.25);
 }
 
 .nav-btn-primary:hover {
-  background: var(--green-700);
-  border-color: var(--green-700);
-  color: var(--white);
+    color: var(--white);
+  background: var(--green-600);
+  border: 2px solid var(--green-600);
+  box-shadow: 0 1px 4px rgba(22, 101, 52, 0.25);
 }
 
 .nav-toggle {
