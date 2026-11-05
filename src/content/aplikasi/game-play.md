@@ -18,7 +18,7 @@ updated: 20 Juli 2026
 hero: https://linkqb.com/img/default.png
 icon: https://linkqb.com/img/icon.png
 
-download: /go
+download: https://linkqb.com/go
 
 pembaruanTerbaru: Versi terbaru Ai Mr Ferdy menghadirkan optimasi performa, peningkatan akurasi kontrol, serta pergerakan karakter yang lebih halus sehingga permainan terasa semakin responsif.
 
