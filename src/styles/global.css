@@ -105,7 +105,7 @@ a:hover { color: var(--green-500); }
 
 .nav-desktop { display: flex; align-items: center; gap: 20px; list-style: none; }
 .nav-desktop a {
-  color: var(--gray-700);
+
   font-size: 0.92rem;
   font-weight: 500;
 }
