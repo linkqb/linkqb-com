@@ -51,3 +51,147 @@ const filteredPosts = posts
 
   </section>
 )}
+
+
+<style>
+/* RELATED POSTS */
+.related-posts {
+  margin: 48px 0;
+  width: 100%;
+}
+
+.related-posts h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0 0 22px;
+  color: var(--text-heading);
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.related-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--card-bg);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.related-card a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.related-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--bg-light);
+  transition: transform 0.35s ease;
+}
+
+.related-card h3 {
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.5;
+  margin: 16px 16px 8px;
+  color: var(--text-heading);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.related-card p {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  margin: 0 16px 18px;
+  color: var(--text-color);
+  opacity: 0.85;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.related-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.related-card:hover img {
+  transform: scale(1.04);
+}
+
+.related-card a:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: -3px;
+  border-radius: 12px;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+  .related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .related-posts {
+    margin: 36px 0;
+  }
+
+  .related-posts h2 {
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+  }
+
+  .related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .related-card {
+    border-radius: 10px;
+  }
+
+  .related-card h3 {
+    font-size: 0.875rem;
+    margin: 11px 11px 6px;
+  }
+
+  .related-card p {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    margin: 0 11px 13px;
+  }
+}
+
+/* REDUCE MOTION */
+@media (prefers-reduced-motion: reduce) {
+  .related-card,
+  .related-card img {
+    transition: none;
+  }
+
+  .related-card:hover {
+    transform: none;
+  }
+}
+</style>
